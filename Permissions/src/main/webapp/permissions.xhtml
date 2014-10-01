@@ -1,0 +1,165 @@
+<ui:composition template="/masterpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+      Permissions: Manage Component Permissions
+    </ui:define>
+
+	<ui:define name="header">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/pages/permissions.js"></script>
+	</ui:define>
+ 
+	<ui:define name="content">
+
+	  <div class="secContent">
+	
+		
+		<div class="boxWrap setup">
+		  <h2 tabindex="-1">Manage Component Permissions</h2>
+			<span id="notifySave" class="warning"></span> <br />
+				<div class="fileGroup">
+				<label>Component:</label>
+			<select id="componentList" tabindex="0">
+				<option value="View all components">View all components</option>
+				<ui:repeat var="item"
+					value="#{permissionsPersister.getAllComponents()}">
+					<option value="#{item.component}">#{item.component}</option>
+				</ui:repeat>
+			</select>
+		</div>
+		<div class="buttonRow">
+				<button class="boxBtn" id="addNew" >
+					<span class="btnIcon icon_sprite icon_saveAdd2" aria-hidden="true"></span><span
+						class="btnText">Add New Permission</span>
+				</button>
+			</div>
+			
+			<table id="oneCompTable" border="1">
+				<thead>
+					<tr>
+						<th scope="col">Component</th>
+						<th scope="col">Permission</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody id="one">
+					<ui:repeat
+						value="#{permissionsPersister.getPermissionsByComponent(param.component)}"
+						var="list">
+						<tr name="#{list.name}">
+							<td><h:outputText value="#{param.component}" /></td>
+							<td><h:outputText value="#{list.name}" /></td>
+							<td>
+								<button value="#{list.name}" name="Edit" tabindex="0">
+								<span class="btnIcon icon_sprite icon_edit2" aria-hidden="true">edit</span>								</button>
+								<button value="#{list.name}" name="Delete" tabindex="0">
+								<span class="btnIcon icon_sprite icon_cancel2" aria-hidden="true">delete</span>								</button>
+							</td>
+						</tr>
+					</ui:repeat>
+				</tbody>
+			</table>
+
+			<table border="1" id="allCompTable">
+				<thead>
+					<tr>
+						<th scope="col">Component</th>
+						<th scope="col">Permission</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody id="all">
+					<ui:repeat value="#{permissionsPersister.getAllComponents()}"
+						var="compItem">
+						<ui:repeat value="#{compItem.getPermissions()}" var="permItem">
+							<tr>
+								<td>#{compItem.component}</td>
+								<td>#{permItem.name}</td>
+								<td>
+									<button value="#{permItem.name}" name="Edit" tabindex="0">
+										<span class="btnIcon icon_sprite icon_edit2" aria-hidden="true">edit</span>
+									</button>
+									<button value="#{permItem.name}" name="Delete" tabindex="0">
+										<span class="btnIcon icon_sprite icon_cancel2" aria-hidden="true">delete</span>
+									</button>
+								</td>
+							</tr>
+						</ui:repeat>
+					</ui:repeat>
+				</tbody>
+			</table>
+
+			<br /> <br /> <br />
+		
+			<div id="customOverlay" class="popupContact"
+				>
+				<h3 tabindex="-1">
+					<span id="lastAction"></span> <br /> Add New Permission
+				</h3>
+				<div style="display: table;width:80%;float:center">
+					<div style="display: table-row;">
+						 <div style="display: table-cell;width:35%;float:left">
+							<label for="addComponentList" style="float:right">Component</label>
+						 </div>
+						 <div style="display: table-cell;width:10%;float:left">:</div>
+						 <div style="display: table-cell;width:55%;float:left">
+								<select id="addComponentList" tabindex="0" style="width:90%;float:left" >
+									<option value="NULL">Select a component...</option>
+									<ui:repeat var="item"
+										value="#{permissionsPersister.getAllComponents()}">
+										<option value="#{item.component}">#{item.component}</option>
+									</ui:repeat>
+								</select> 
+								<!-- <br /> <br /> <select id="existingPermission">
+									<option value="NULL">Select a permission</option>
+									<ui:repeat var="addPerm"
+										value="#{permissionsPersister.getAllPermissions()}">
+										<option value="#{addPerm.name}">#{addPerm.name}</option>
+									</ui:repeat>
+								</select> <br />OR <br /> -->
+						</div>
+					</div>
+					<div style="display: table-row;">
+						 <div style="display: table-cell;width:35%;float:left">
+							<label for="addPermission" style="float:right">Enter New Permission</label> 
+					</div>
+					<div style="display: table-cell;width:10%;float:left">:</div>
+					<div style="display: table-cell;width:55%;float:left">
+						<input type="text" id="addPermission" tabindex="1" style="width:90%;float:left" ></input>
+					</div> 
+					</div>
+				</div>
+				<br/>
+				<span id="notifyAdd" class="warning" ></span>
+				<div id="popUpMessageButtonsDiv"
+					>
+					<button id="saveAddMore" class="boxBtn" tabindex="0">Save
+						and Add More</button>
+					<button id="saveAdd" class="boxBtn" tabindex="0">Save</button>
+					<button id="cancelAdd" class="boxBtn" tabindex="0">Cancel</button>
+				</div>
+			</div>
+
+			<div id="editOverlay" class="popupContact"
+				>
+				<h3 tabindex="-1">
+					Edit Permission <span id="componentEdit"></span>
+				</h3>
+				<div >
+					<label for="alias">Permission:</label> <input type="text" id="alias"> </input> <br /> <span
+						id="notifyEdit" class="warning"></span>
+				</div>
+				<div id="popUpMessageButtonsDiv"
+					style="position: fixed; top: 400px;">
+					<button id="saveEdit" class="boxBtn" tabindex="0">Save</button>
+					<button id="cancelEdit" class="boxBtn" tabindex="0">Cancel</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

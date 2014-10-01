@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	                    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- TDSSettings bean. This gives access to clientname and any other info such as session type etc. -->
+	
+	<!-- Load defaults from classpath -->
+	<context:property-placeholder
+		ignore-unresolvable="true"
+		order="990"
+		location="classpath:opentestsystem.shared.test-db-default-properties.xml" />
+	<context:property-placeholder
+		ignore-unresolvable="true"
+		order="980"
+		location="classpath:test-properties.xml" />
+	
+	<util:properties id="masterDataSourceProperties">
+		<prop key="jdbcUrl">${jdbc.url}</prop> 
+ 		<prop key="user">${jdbc.userName}</prop>
+ 		<prop key="password">${jdbc.password}</prop> 
+ 		<prop key="driverClass">${jdbc.driverclass:com.mysql.jdbc.Driver}</prop>
+	</util:properties>
+	
+	<bean id="permissionsSchema" class="org.opentestsystem.unittest.db.DBSchemaDeployerImpl">
+		<property name="masterDataSourceProperties" ref="masterDataSourceProperties"/>
+		<property name="schemaDefinitionName" value="permissions"/>
+		<property name="dbDialect" value="${DBDialect}"/>
+		<property name="dbName" value="unittest_permissions_db"/>
+		<property name="additionalUrlParm" value = "${AdditionalUrlParm}" />
+	</bean>
+	
+	<alias alias="applicationDataSource" name="permissionsSchema" /> 
+ 	
+ 	<bean id="permissionsData" class="org.opentestsystem.unittest.db.DBDataDeployerImpl">
+		<property name="dataSource" ref="permissionsSchema"/>
+		<property name="dataDefinitionName" value="permissions"/>
+		<property name="importFileName" value="${permissionsDataFileName}"/>
+	</bean>
+	
+</beans>

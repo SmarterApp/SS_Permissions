@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<permissions>
+
+  <role name="Test Author">
+    <allowableentitytype entity="CLIENT"/>
+    <allowableentitytype entity="STATE"/>
+  </role>
+
+  <role name="Test Approver">
+    <allowableentitytype entity="CLIENT"/>
+    <allowableentitytype entity="STATE"/>
+  </role>
+
+  <role name="Test Kingpin">
+    <allowableentitytype entity="CLIENT"/>
+    <allowableentitytype entity="STATE"/>
+  </role>
+
+  <component name="TestAuthoring">
+    <permission name="TA|Author Tests"/>
+    <permission name="TA|Approve Tests"/>      
+    <permission name="TA|Release Tests"/>
+  </component>
+
+  <permissionmapping role="Test Author" permission="Author Tests"/>
+  <permissionmapping role="Test Approver" permission="Author Tests"/>
+  <permissionmapping role="Test Approver" permission="Approve Tests"/>  
+  <permissionmapping role="Test Kingpin" permission="Author Tests"/>
+  <permissionmapping role="Test Kingpin" permission="Approve Tests"/>
+  <permissionmapping role="Test Kingpin" permission="Release Tests"/>
+
+</permissions>

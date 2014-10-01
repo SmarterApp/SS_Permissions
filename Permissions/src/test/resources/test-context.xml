@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd                                                                                                                                            
+                http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd                                                                                                                                                       
+                http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd                                                                                                                                                          
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.2.xsd">
+	
+	<context:property-placeholder
+		location="classpath:opentestystem-permissions.settings-unitTestDefaults.xml"
+		ignore-unresolvable="true" order="900" />
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="org.opentestsystem.shared.permissions.rest" />
+
+	<import resource="classpath:opentestsystem.shared.test-db-context-module.xml" />
+	<import resource="classpath:/test-context-schema-deployer.xml" />
+	<!--import resource="classpath:/test-context-scripts.xml" /-->
+		
+ 	
+	<mvc:interceptors>
+		<bean class="org.smarterbalanced.docs.RequestLoggingInterceptor" />
+	</mvc:interceptors> 
+
+	<bean id="tdsSettings" class="TDS.Shared.Configuration.TDSSettingsNoWeb" scope="prototype" />	
+
+	<bean id="dbPermissionsDll"
+		class="org.opentestsystem.shared.permissions.dao.db.dll.DbPermissionsDll" />
+
+	<bean id="dbPermissionsDAO"	class="org.opentestsystem.shared.permissions.dao.db.DbPermissionsDAO" />
+
+	<bean id="permissionsPersister"
+		class="org.opentestsystem.shared.permissions.dao.db.DbPermissionsPersister" />
+
+	<bean id="abstractConnectionManager" class="AIR.Common.DB.RollbackConnectionManager">
+		<property name="databaseDialect" value="${DBDialect}"/>
+		<property name="dataSource" ref="applicationDataSource"/>
+	</bean>
+</beans>

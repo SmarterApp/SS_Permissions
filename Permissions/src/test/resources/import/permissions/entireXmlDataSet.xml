@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <role _id="1" name="Content Kingpin"/>
+  <role _id="3" name="Content Author"/>
+  <role _id="5" name="Content Approver"/>
+  <role_entity _fk_rid="1" _fk_etuk="STATE"/>
+  <role_entity _fk_rid="5" _fk_etuk="CLIENT"/>
+  <role_entity _fk_rid="1" _fk_etuk="CLIENT"/>
+  <role_entity _fk_rid="5" _fk_etuk="STATE"/>
+  <role_entity _fk_rid="3" _fk_etuk="CLIENT"/>
+  <role_entity _fk_rid="3" _fk_etuk="STATE"/>
+  <component _id="9" name="Item Authoring"/>
+  <component _id="10" name="Test Authoring"/>
+  <entitytype _id="1" name="Client" unique_key="CLIENT"/>
+  <entitytype _id="2" name="Group of States" unique_key="GROUPOFSTATES"/>
+  <entitytype _id="3" name="State" unique_key="STATE"/>
+  <entitytype _id="4" name="Group of Districts" unique_key="GROUPOFDISTRICTS"/>
+  <entitytype _id="5" name="District" unique_key="DISTRICT"/>
+  <entitytype _id="6" name="Group of Institutions" unique_key="GROUPOFINSTITUTIONS"/>
+  <entitytype _id="7" name="Institution" unique_key="INSTITUTION"/>
+  <permission _id="7" name="Author Tests"/>
+  <permission _id="9" name="Release Tests"/>
+  <permission _id="11" name="Approve Tests"/>
+  <permission _id="12" name="Author Items"/>
+  <permission _id="13" name="Approve Items"/>
+  <permission_role _id="1" _fk_rid="5" _fk_cid="9" _fk_pid="13"/>
+  <permission_role _id="2" _fk_rid="5" _fk_cid="9" _fk_pid="12"/>
+  <permission_role _id="3" _fk_rid="3" _fk_cid="9" _fk_pid="12"/>
+  <permission_role _id="4" _fk_rid="5" _fk_cid="10" _fk_pid="7"/>
+  <permission_role _id="5" _fk_rid="5" _fk_cid="10" _fk_pid="11"/>
+  <permission_role _id="6" _fk_rid="3" _fk_cid="10" _fk_pid="7"/>
+  <permission_role _id="7" _fk_rid="1" _fk_cid="10" _fk_pid="11"/>
+  <permission_role _id="8" _fk_rid="1" _fk_cid="10" _fk_pid="7"/>
+  <permission_role _id="9" _fk_rid="1" _fk_cid="10" _fk_pid="9"/>
+</dataset>

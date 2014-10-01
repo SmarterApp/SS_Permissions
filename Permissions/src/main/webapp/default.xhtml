@@ -1,0 +1,54 @@
+<ui:composition template="/masterpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+       Permissions
+	</ui:define>
+ 
+	<ui:define name="header">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/pages/default.js"></script>
+	</ui:define>
+
+
+	<ui:define name="content">
+	
+				 <div id="homeLayout" class="content" role="main"> 
+        <div class="boxWrap home">
+                                <span class="homeTitle"><h2 tabindex="-1">Create, Edit, and View Components, Roles, and Permissions</h2></span>
+                <div class="btnStack">
+                    <button class="homeBtn green" id="componentBtn" value="Manage Components" role="button" tabindex="0"><span class="btnText" role="button">Manage Components</span><span class="homeIcon manageComponents" aria-hidden="true"></span><p>Create/Edit/View 
+components</p></button>
+                    <button class="homeBtn navy" id="roleBtn" value="View Roles" role="button" tabindex="0"><span class="btnText" role="button">Manage Roles</span><span class="homeIcon manageRoles" aria-hidden="true"></span><p>Create, view, and edit roles and their allowable hierarchy levels</p></button>
+                </div>
+                <div class="btnRow">    
+                <span class="arrowImage"></span>
+                    <button class="homeBtn maroon" id="permissionBtn" value="View Permissions" role="button" tabindex="0"><span class="btnText">Manage Component Permissions</span><span class="homeIcon managePermissions" aria-hidden="true"></span><p>Create, view and edit component permissions</p></button>
+				<span class="arrowImage"></span>
+                    <button class="homeBtn navy" id="mappingBtn" value="Map Roles to Component Permissions" role="button" tabindex="0"><span class="btnText">Map Roles to 
+Component Permissions</span><span class="homeIcon mapping" aria-hidden="true"></span><p>Create and manage mappings between roles and component permissions</p></button>
+                    
+                </div>
+                <!-- begin jkt edit -->
+             <!-- <div class="line"></div>
+             <div class="btnGroup">
+                    <button tabindex="0" type="button" value="Download Roles, Components, Permissions and Mappings" id="downloadSettings" class="homeBtn green"><span class="btnText">Download Roles, Components, Permissions and Mappings</span><span aria-hidden="true" class="homeIcon downloadlink "></span><p>Download a spreadsheet containing all roles, permissions, components and mappings </p></button>
+                    <button tabindex="0" type="button" value="Upload Roles, Components, Permissions and Mappings" id="uploadSettings" class="homeBtn maroon"><span class="btnText">Upload Roles, Components, Permissions and Mappings</span><span aria-hidden="true" class="homeIcon uploadLink"></span><p>Upload a spreadsheet that changes settings for roles, permissions, components and mappings</p></button>
+                </div> -->
+             
+        </div>
+        <div class="clear"></div>
+       	<div class="footer">
+		   	<h:panelGroup layout="block" class="footerText" rendered="#{buildInfoBacking.appVersionFound}">
+			     Version: #{buildInfoBacking.buildInfo.appVersion}
+			     <h:panelGroup rendered="#{buildInfoBacking.jenkinsBuildNumberFound}"> (build #: #{buildInfoBacking.buildInfo.jenkinsBuildNumber})</h:panelGroup>
+		 	</h:panelGroup>
+		</div>
+        
+      </div> 
+
+	</ui:define>
+</ui:composition>

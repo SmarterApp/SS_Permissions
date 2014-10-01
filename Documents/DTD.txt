@@ -1,0 +1,13 @@
+<!DOCTYPE permissions [
+<!ELEMENT role (allowableentitytype+) >
+<!ATTLIST role name CDATA #REQUIRED>
+<!ELEMENT allowableentitytype EMPTY >
+<!ATTLIST allowableentitytype entity ( CLIENT | GROUPOFSTATES | STATE | GROUPOFDISTRICTS | DISTRICT | GROUPOFINSTITUTIONS | INSTITUTION ) #REQUIRED>
+<!ELEMENT component (permission+) >
+<!ATTLIST component name CDATA #REQUIRED>
+<!ELEMENT permission EMPTY >
+<!ATTLIST permission name CDATA #REQUIRED>
+<!ELEMENT permissionmapping EMPTY >
+<!ATTLIST permissionmapping role CDATA #REQUIRED permission CDATA #REQUIRED>
+<!ELEMENT permissions (role+, component+, permissionmapping*)>
+]> 

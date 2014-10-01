@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://java.sun.com/jsf/passthrough"
+	xmlns:vt="http://java.sun.com/jsf/composite/trainer"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+	<title><ui:insert name="title">SBAC Permissions</ui:insert></title>
+	<link href="#{request.contextPath}/css/fonts.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/core.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/fluid.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/corestandards.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/css/popupCustom.css"
+		rel="stylesheet" type="text/css" />
+ 
+
+	<script type="text/javascript"
+		src="#{request.contextPath}/js/jquery-1.8.3.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/js/common/main.js"></script>
+		<script type="text/javascript"
+		src="#{request.contextPath}/js/common/slide-menu.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/js/debug/firebug.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/js/io/ajax.js"></script>
+	<script type="text/javascript">
+		if (typeof Permission == 'undefined') {
+			Permission = {};
+			Permission.Common = {};
+		}
+		Permission.baseUrl = '#{request.contextPath}';
+	</script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/js/pages/commonPages.js"></script>
+
+
+	<ui:insert name="header"></ui:insert>
+</h:head>
+
+<h:body>
+	<div id="popupContact" class="popupContact"
+		>
+		<a id="popupContactClose" class="popupContactClose">x</a>
+		<div id="contactArea">
+			<iframe id="popupiFrame" class="popupiFrame" width="960px"
+				scrolling="auto"
+				>
+			</iframe>
+		</div>
+	</div>
+	<div id="overlayMessages" class="popupContact" style="z-index:3"
+		>
+		<h3 tabindex="-1" style="text-align: center;">
+			<span id="messageType">Warning!</span>
+		</h3>
+		<div >
+			<p>
+				<span id="popUpMessage"></span>
+			</p>
+		</div>
+		<div id="popUpMessageButtonsDiv" >
+			<button id="closePopupMessage" class="boxBtn" type="submit" tabindex="0">Cancel</button>
+
+		</div>
+	</div>
+	<div id="backgroundPopup" class="backgroundPopup"></div>
+	<h:form>
+		<div class="container">
+			<div class="header">
+				<div class="info">
+					<ul>
+						<li>Logged in as: ${userDetailsBacking.getFullName()} </li>
+						<li><a href="saml/logout">Logout</a></li>
+					</ul>
+				</div>
+				<div class="banner" role="banner">
+					<span class="logo" id="homeBtn" type="button"><a href="#"> 
+					<!-- <img src="#{request.contextPath}/images/logo_sbac.png" alt="Smarter Balanced Assessment Consortium" name="SBAC_logo" /> -->
+					<img src="${userDetailsBacking.logoImageURL}" alt="${userDetailsBacking.logoImageTitle}" name="SBAC_logo" />
+					</a> </span> <span class="title">
+						<h1 tabindex="-1">Permissions</h1>
+					</span>
+				</div>
+			</div>
+
+			<!-- InstanceBeginEditable name="Main Content" -->
+			
+			<div class="content">
+			<div class="slide-menu">
+	<div class="content secondary"> 
+	     <div class="nav" role="navigation">
+		    <ol><li class="menuli manageComponentsLink green" id="componentLink" value="Manage Components" role="button" tabindex="0">Manage Components<span aria-hidden="true"></span></li>
+		    <li class="menuli viewRolesLink navy" id="roleLink" value="View Roles" role="button" tabindex="0">Manage Roles<span aria-hidden="true"></span>
+		    </li>
+		    <li class="menuli viewPermissionsLink maroon" id="permissionLink" value="View Permissions" role="button" tabindex="0">Manage Component Permissions<span aria-hidden="true"></span>
+		    </li>
+		    <li class="menuli mappingLink navy" id="mappingLink" value="Map Roles to Component Permissions" role="button" tabindex="0">Map Roles to Component Permissions<span aria-hidden="true"></span>
+		     </li>
+		     <!-- <li class="menuli downloadLink green" id="mappingLink" value="Download Roles, Components, Permissions and Mappings" role="button" tabindex="0">Download Roles, Components, Permissions and Mappings<span aria-hidden="true"></span>
+		     </li>
+		     <li class="menuli uploadLink maroon" id="mappingLink" value="Upload Roles, Components, Permissions and Mappings" role="button" tabindex="0">Upload Roles, Components, Permissions and Mappings<span aria-hidden="true"></span>
+		     </li> -->
+			</ol>
+		</div>
+		<a href="javascript:void(0);" class="slider-arrow" role="button" tabindx="0" value="Menu-Slider Button">«</a>
+	</div>
+</div>
+				<!-- div class="boxWrap setup">
+
+					<div id="overlay" class="overlay" style="display: none">
+						<div id="loaderImgTxtContainer" class="loaderImgTxtContainer">
+							<img alt="" id="overlayImage"
+								src="#{request.contextPath}/images/loadingWheel.gif" /> <span
+								id="spinnerMessage"></span>
+						</div>
+					</div>
+				</div>-->
+				<ui:insert name="content">Master page content</ui:insert>
+			</div>
+			<!-- InstanceEndEditable -->
+		</div>
+	</h:form>
+</h:body>
+</html>

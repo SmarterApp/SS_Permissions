@@ -1,0 +1,110 @@
+<ui:composition template="/masterpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+      Permissions: Manage Roles
+    </ui:define>
+
+	<ui:define name="header">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/pages/roles.js"></script>
+	</ui:define>
+
+	<ui:define name="content">
+					
+		  <div class="secContent">
+		<div class="boxWrap setup">
+			<div id="table">
+				<span id="notifySave" class="warning"></span> <br />
+				<h2 tabindex="-1">Manage Roles</h2>
+					<div class="buttonRow">
+				<button class="boxBtn" id="addNew" tabindex="0">
+					<span class="btnIcon icon_sprite icon_saveAdd2" aria-hidden="true"></span><span
+						class="btnText">Add New Role</span>
+				</button>
+				<button class="boxBtn" id="saveAll" tabindex="0">
+					<span class="btnIcon icon_sprite icon_save2" aria-hidden="true"></span><span
+						class="btnText">Save</span>
+				</button>
+				<button class="boxBtn" id="cancel" tabindex="0">
+					<span class="btnIcon icon_sprite icon_cancel2" aria-hidden="true"></span><span
+						class="btnText">Cancel</span>
+				</button>
+			</div>
+				<table border="1" id="rolesTable">
+					<thead>
+						<tr>
+							<th scope="col">Role</th>
+							<ui:repeat
+								value="#{permissionsPersister.getAllAllowableEntities()}"
+								var="entity">
+								<th scope="col">#{entity.description}</th>
+							</ui:repeat>
+							<th scope="col">
+								<!--  column for delete / edit button. -->
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<ui:repeat value="#{permissionsPersister.getAllRoles()}"
+							var="item">
+							<tr name="#{item.role}">
+								<td><h:outputText id="role" value="#{item.role}" /></td>
+								<ui:repeat
+									value="#{permissionsPersister.getAllAllowableEntities()}"
+									var="entityx">
+									<td><h:selectBooleanCheckbox
+											value="#{item.hasEntity(entityx.entity)}"
+											name="#{entityx.entity}"></h:selectBooleanCheckbox></td>
+								</ui:repeat>
+								<td>
+									<button id="edit" name="edit" value="#{item.role}" tabindex="0">
+<span class="btnIcon icon_sprite icon_edit2" aria-hidden="true">edit</span>									</button>
+									<button id="delete" name="delete" value="#{item.role}" tabindex="0">
+<span class="btnIcon icon_sprite icon_cancel2" aria-hidden="true">delete</span>									</button>
+								</td>
+							</tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+			</div>
+ 
+			<br /> <br /> <br />
+		
+		</div>
+
+		<div id="customOverlay" class="popupContact">
+			<h3 tabindex="-1">
+				<span id="lastAction"></span> <br />Add New Role
+			</h3>
+			<div>
+				<label for="newRole">Role:</label> <input type="text" id="newRole" class="warning"> </input> <br />
+				<span id="notifyAdd" class="warning"></span>
+
+			</div>
+			<div id="popUpMessageButtonsDiv">
+				<button id="saveAddMore" class="boxBtn" tabindex="0">Save and Add More</button>
+				<button id="saveAdd" class="boxBtn" tabindex="0">Save</button>
+				<button id="cancelAdd" class="boxBtn" tabindex="0">Cancel</button>
+			</div>
+		</div>
+
+		<div id="editOverlay" class="popupContact">
+			<h3 tabindex="-1">
+				Edit Role
+			</h3>
+			<div>
+				<label for="newRole">Role:</label> <input type="text" id="alias"> </input> <br /> <span
+					id="notifyEdit" class="warning"></span>
+			</div>
+			<div id="popUpMessageButtonsDiv">
+				<button id="saveEdit" class="boxBtn" tabindex="0">Save</button>
+				<button id="cancelEdit" class="boxBtn" tabindex="0">Cancel</button>
+			</div>
+		</div>
+		</div>
+	</ui:define>
+</ui:composition>

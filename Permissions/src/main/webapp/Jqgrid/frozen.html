@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>My First Grid</title>
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/jquery-ui-custom.css" />
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/ui.jqgrid.css" />
+
+<style type="text/css">
+html,body {
+	margin: 0;
+	padding: 0;
+	font-size: 1%;
+}
+</style>
+
+<script src="js/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="js/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				jQuery("#list").jqGrid(
+						{
+							datatype : "local",
+
+							colNames : [ 'Component', 'Permission',
+									'Test Approver', 'Test Kingpin' ],
+							colModel : [ {
+								name : 'c',
+								index : 'c',
+								width : 150,
+								sorttype : "int",
+								frozen : true
+							}, {
+								name : 'p',
+								index : 'p',
+								width : 100,
+								sorttype : "date"
+							}, {
+								name : 'Test Approver',
+								index : 'Test Approver',
+								width : 75,
+								align : 'center',
+								formatter : 'checkbox',
+								edittype : 'checkbox',
+								editoptions : {
+									value : 'true:false',
+									defaultValue : 'false'
+								}
+							}, {
+								name : 'Test Kingpin',
+								index : 'Test Kingpin',
+								width : 75,
+								align : 'center',
+								formatter : 'checkbox',
+								edittype : 'checkbox',
+								editoptions : {
+									value : 'true:false',
+									defaultValue : 'false'
+								}
+							} ],
+							shrinkToFit : false,
+							viewrecords : true,
+							sortorder : "desc",
+							caption : "Manipulating Array Data"
+						});
+				jQuery("#list").jqGrid('setFrozenColumns');
+
+				var mydata = [ {
+					"Test Approver" : true,
+					"c" : "TestAuthoring",
+					"Test Kingpin" : true,
+					"p" : "Author Tests"
+				}, {
+					"Test Approver" : false,
+					"c" : "TestAuthoring",
+					"Test Kingpin" : true,
+					"p" : "Release Tests"
+				}, {
+					"Test Approver" : false,
+					"c" : "TestAuthoring",
+					"Test Kingpin" : false,
+					"p" : "3"
+				}, {
+					"Test Approver" : true,
+					"c" : "TestAuthoring",
+					"Test Kingpin" : false,
+					"p" : "2"
+				}, {
+					"Test Approver" : false,
+					"c" : "TestAuthoring",
+					"Test Kingpin" : false,
+					"p" : "23"
+				}, {
+					"Test Approver" : false,
+					"c" : "xyz",
+					"Test Kingpin" : false,
+					"p" : "1"
+				}, {
+					"Test Approver" : false,
+					"c" : "xyz",
+					"Test Kingpin" : false,
+					"p" : "2"
+				} ];
+
+				for (var i = 0; i <= mydata.length; i++) {
+					jQuery("#list").jqGrid('addRowData', i + 1, mydata[i]);
+				}
+
+			});
+</script>
+
+</head>
+<body>
+	<table id="list">
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	<div id="pager"></div>
+</body>
+</html>

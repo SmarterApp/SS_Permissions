@@ -1,0 +1,93 @@
+<ui:composition template="/masterpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+      Permissions: Manage Components
+	</ui:define>
+ 
+	<ui:define name="header">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/pages/components.js"></script>
+	</ui:define>
+	<ui:define name="content">
+  <div class="secContent">
+		<div class="boxWrap setup">
+		<h2 tabindex="-1">Manage Components</h2>
+		<div class="buttonRow">
+				<button class="boxBtn" id="addNew" tabindex="0">
+					<span class="btnIcon icon_sprite icon_saveAdd2" aria-hidden="true"></span><span
+						class="btnText">Add New Component</span>
+				</button>
+			</div>
+			<div id="table">
+				
+				<table border="1">
+					<thead>
+						<tr>
+							<th scope="col">Component</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<ui:repeat value="#{permissionsPersister.getAllComponents()}"
+						var="item">
+						<tr name="#{item.component}">
+							<td>#{item.component}</td>
+							<td>
+								<button id="editBtn" value="#{item.component}" name="Edit"
+									type="button" tabindex="0">
+									<span class="btnIcon icon_sprite icon_edit2" aria-hidden="true">edit</span>
+								</button>
+								<button id="deleteBtn" value="#{item.component}" name="Delete"
+									type="button" tabindex="0">
+									<span class="btnIcon icon_sprite icon_cancel2" aria-hidden="true">delete</span>
+								</button>
+							</td>
+						</tr>
+					</ui:repeat>
+				</table>
+			</div>
+
+
+			<br /> <br /> <br />
+			
+
+		</div>
+
+		<div id="customOverlay" class="popupContact"
+			>
+			<h3 tabindex="-1" style="text-align: center;">
+				<span id="lastAction"></span> <br /> Add New Component
+			</h3>
+			<div >
+				<label for="newComponent">Component:</label> <input type="text" id="newComponent"> </input><br /> <span
+					id="notifyAdd" class="warning"></span>
+
+			</div>
+			<div id="popUpMessageButtonsDiv" >
+				<button id="saveAddMore" class="boxBtn" tabindex="0">Save
+					and Add More</button>
+				<button id="saveAdd" class="boxBtn" tabindex="0">Save</button>
+				<button id="cancelAdd" class="boxBtn" tabindex="0">Cancel</button>
+			</div>
+		</div>
+
+		<div id="editOverlay" class="popupContact"
+			>
+			<h3 tabindex="-1">
+			Edit Component
+			</h3>
+			<div >
+				<label for="alias">Component:</label> <input type="text" id="alias"> </input><br /> <span
+					id="notifyEdit" class="warning"></span>
+			</div>
+			<div id="popUpMessageButtonsDiv" >
+				<button id="saveEdit" class="boxBtn" tabindex="0">Save</button>
+				<button id="cancelEdit" class="boxBtn" tabindex="0">Cancel</button>
+			</div>
+		</div>
+			</div>
+	</ui:define>
+</ui:composition>

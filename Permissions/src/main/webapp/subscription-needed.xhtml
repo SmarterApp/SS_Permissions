@@ -1,0 +1,23 @@
+<ui:composition template="/masterpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+       Permissions
+	</ui:define>
+ 
+	<ui:define name="header">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/pages/default.js"></script>
+	</ui:define>
+	
+	<ui:define name="content">
+	<h:outputText>
+		<h1>There was an issue logging in, please ensure you have the proper role and tenancy for this application.
+			<a href="saml/logout"><h:button value="Logout"/></a> 
+		</h1>
+	</h:outputText>
+	</ui:define>
+</ui:composition>

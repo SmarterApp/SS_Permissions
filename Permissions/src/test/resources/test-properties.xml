@@ -1,0 +1,7 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="sessionDataFileName">entireXmlDataSet.xml</entry>
+	<entry key="itembankDataFileName">entireXmlDataSet.xml</entry>
+	<entry key="DBDialect">MYSQL</entry>
+	<entry key="AdditionalUrlParm">?useServerPrepStmts=false&amp;rewriteBatchedStatements=true</entry>
+</properties>

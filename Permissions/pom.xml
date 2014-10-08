@@ -6,7 +6,7 @@
 	<artifactId>permissions</artifactId>
 	<name>Permissions</name>
 	<packaging>war</packaging>
-	<version>R01.00.00</version>
+	<version>R01.00.01</version>
 	<properties>
 		<air.shared.version>1.0.1</air.shared.version>
 		<java-version>1.7</java-version>
@@ -37,19 +37,12 @@
 	</properties>
 		
 	<scm>
-        <connection>scm:hg:https://bitbucket.org/sbacoss/permissionsdev</connection>
-        <developerConnection>scm:hg:https://bitbucket.org/sbacoss/permissionsdev</developerConnection>
-        <url>https://bitbucket.org/sbacoss/permissionsdev</url>
+        <connection>scm:hg:https://bitbucket.org/sbacoss/permissions_release</connection>
+        <developerConnection>scm:hg:https://bitbucket.org/sbacoss/permissions_release</developerConnection>
+        <url>https://bitbucket.org/sbacoss/permissions_release</url>
     </scm>
 	
 	
-	<repositories>
-		<repository>
-			<id>airdev-snapshots</id>
-			<name>airdev-snapshots</name>
-			<url>http://airdev.artifactoryonline.com/airdev/libs-snapshots-local</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<!-- Start Dependency shared project -->
@@ -398,12 +391,5 @@
 		</plugins>
 	</reporting>
 	
-	<distributionManagement>
-       <repository>
-            <id>central</id>
-            <name>libs-releases</name>
-            <url>http://airdev.artifactoryonline.com/airdev/libs-releases-local</url>
-        </repository>
-    </distributionManagement>
 	
 </project>

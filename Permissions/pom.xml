@@ -6,9 +6,9 @@
 	<artifactId>permissions</artifactId>
 	<name>Permissions</name>
 	<packaging>war</packaging>
-	<version>R01.00.38</version>
+	<version>1.0.1-BUILD-SNAPSHOT</version>
 	<properties>
-		<air.shared.version>1.0.1</air.shared.version>
+		<air.shared.version>1.0.1-BUILD-SNAPSHOT</air.shared.version>
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.2.1.RELEASE</org.springframework-version>
 		<org.springframework-webflow-version>2.3.2.RELEASE</org.springframework-webflow-version>
@@ -31,9 +31,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<file.encoding>UTF-8</file.encoding>
-		<sb11-mna-client.version>0.0.4</sb11-mna-client.version>
-		<sb11-shared-code.version>0.0.6</sb11-shared-code.version>
-		<progman-client.version>0.0.4</progman-client.version>
+		<sb11-mna-client.version>0.0.4-SNAPSHOT</sb11-mna-client.version>
+		<sb11-shared-code.version>0.0.6-SNAPSHOT</sb11-shared-code.version>
+		<progman-client.version>0.0.4-SNAPSHOT</progman-client.version>
 	</properties>
 		
 	<scm>
@@ -153,14 +153,14 @@
 
 		<!-- End JSF integration -->
 		<!-- <dependency> <groupId>org.smarterbalanced</groupId> <artifactId>rest-api-generator</artifactId> 
-			<version>0.0.1</version> <type>jar</type> </dependency> <dependency> 
+			<version>0.0.1-SNAPSHOT</version> <type>jar</type> </dependency> <dependency> 
 			<groupId>org.smarterbalanced</groupId> <artifactId>rest-api-generator</artifactId> 
-			<version>0.0.1</version> <type>test-jar</type> <scope>test</scope> 
+			<version>0.0.1-SNAPSHOT</version> <type>test-jar</type> <scope>test</scope> 
 			</dependency> -->
 		<dependency>
 			<groupId>org.opentestsystem.shared</groupId>
 			<artifactId>rest-api-generator</artifactId>
-			<version>0.0.3</version>
+			<version>0.0.3-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>commons-logging</artifactId>
@@ -219,7 +219,7 @@
 		<dependency>
 		    <groupId>org.opentestsystem.shared</groupId>
 		    <artifactId>sb11-shared-security</artifactId>
-		    <version>0.0.1</version>
+		    <version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>

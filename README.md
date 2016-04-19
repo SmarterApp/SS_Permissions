@@ -42,7 +42,7 @@ pm.oauth.batch.account={OAuth Client id configured in OAM to allow get an OAuth 
 pm.oauth.batch.password={OAuth Client secret/password configured in OAM to allow get an OAuth token for the ‘batch' web service call to program management(for loading configs during start up)}
 
 working example:
-oauth.access.url=https://drc-dev-secure.opentestsystem.org/auth/oauth2/access_token?realm=/sbac
+oauth.access.url=https://<openam-url>/auth/oauth2/access_token?realm=/your-realm
 pm.oauth.client.id=pm
 pm.oauth.client.secret=OAUTHCLIENTSECRET
 pm.oauth.batch.account=test@example.com

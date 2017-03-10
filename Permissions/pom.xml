@@ -33,6 +33,7 @@
 		<file.encoding>UTF-8</file.encoding>
 		<sb11-mna-client.version>3.0.0</sb11-mna-client.version>
 		<sb11-shared-code.version>3.0.0</sb11-shared-code.version>
+		<sb11-shared-security.version>3.0.0</sb11-shared-security.version>
 		<progman-client.version>3.0.0</progman-client.version>
 	</properties>
 		
@@ -219,7 +220,7 @@
 		<dependency>
 		    <groupId>org.opentestsystem.shared</groupId>
 		    <artifactId>sb11-shared-security</artifactId>
-		    <version>0.0.1-SNAPSHOT</version>
+		    <version>${sb11-shared-security.version}</version>
 		</dependency>
 		
 		<dependency>

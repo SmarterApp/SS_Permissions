@@ -32,7 +32,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<file.encoding>UTF-8</file.encoding>
 		<sb11-mna-client.version>3.0.0</sb11-mna-client.version>
-		<sb11-shared-code.version>3.0.0</sb11-shared-code.version>
+		<sb11-shared-code.version>3.0.4</sb11-shared-code.version>
 		<sb11-shared-security.version>3.0.0</sb11-shared-security.version>
 		<progman-client.version>3.0.0</progman-client.version>
 	</properties>

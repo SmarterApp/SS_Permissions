@@ -32,7 +32,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<file.encoding>UTF-8</file.encoding>
 		<sb11-mna-client.version>3.0.0</sb11-mna-client.version>
-		<sb11-shared-code.version>3.0.4</sb11-shared-code.version>
+		<sb11-shared-code.version>3.0.6</sb11-shared-code.version>
 		<sb11-shared-security.version>3.0.0</sb11-shared-security.version>
 		<progman-client.version>3.0.0</progman-client.version>
 	</properties>
@@ -72,30 +72,6 @@
 		</dependency>
 		<!-- End Dependency shared project -->
 		
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j-version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
 		<!-- MySQL connector: Required primarily for unit tests. Must be placed 
 			in Tomcat's classpath (e.g. /lib directory) -->
 

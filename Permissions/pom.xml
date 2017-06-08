@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<version>1.0.1-BUILD-SNAPSHOT</version>
 	<properties>
-		<air.shared.version>1.0.1-BUILD-SNAPSHOT</air.shared.version>
+		<air.shared.version>3.1.0.RELEASE</air.shared.version>
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.2.1.RELEASE</org.springframework-version>
 		<org.springframework-webflow-version>2.3.2.RELEASE</org.springframework-webflow-version>
@@ -31,10 +31,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<file.encoding>UTF-8</file.encoding>
-		<sb11-mna-client.version>3.0.0</sb11-mna-client.version>
-		<sb11-shared-code.version>3.0.6</sb11-shared-code.version>
-		<sb11-shared-security.version>3.0.0</sb11-shared-security.version>
-		<progman-client.version>3.0.0</progman-client.version>
+		<sb11-mna-client.version>3.1.0.RELEASE</sb11-mna-client.version>
+		<sb11-shared-code.version>3.1.0.RELEASE</sb11-shared-code.version>
+		<sb11-shared-security.version>3.1.0.RELEASE</sb11-shared-security.version>
+		<progman-client.version>3.1.0.RELEASE</progman-client.version>
+		<rest-api.version>3.1.0.RELEASE</rest-api.version>
 	</properties>
 		
 	<scm>
@@ -137,7 +138,7 @@
 		<dependency>
 			<groupId>org.opentestsystem.shared</groupId>
 			<artifactId>rest-api-generator</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>${rest-api.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>commons-logging</artifactId>

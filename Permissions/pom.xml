@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.opentestsystem.shared</groupId>
 	<artifactId>permissions</artifactId>
-	<name>Permissions</name>
+	<name>permissions</name>
 	<packaging>war</packaging>
-	<version>3.1.1-BUILD-SNAPSHOT</version>
+	<version>3.1.1-SNAPSHOT</version>
 
 	<properties>
 		<air.shared.version>3.1.0.RELEASE</air.shared.version>

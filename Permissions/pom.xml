@@ -6,7 +6,7 @@
 	<artifactId>tds-permissions</artifactId>
 	<name>tds-permissions</name>
 	<packaging>war</packaging>
-	<version>3.1.1-SNAPSHOT</version>
+	<version>3.1.0</version>
 
 	<properties>
 		<air.shared.version>3.1.0.RELEASE</air.shared.version>

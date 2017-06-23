@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.opentestsystem.shared</groupId>
-	<artifactId>tds-permissions</artifactId>
-	<name>tds-permissions</name>
+	<artifactId>permissions</artifactId>
+	<name>permissions</name>
 	<packaging>war</packaging>
-	<version>3.1.0</version>
+	<version>3.1.1-SNAPSHOT</version>
 
 	<properties>
 		<air.shared.version>3.1.0.RELEASE</air.shared.version>
@@ -33,10 +33,10 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<file.encoding>UTF-8</file.encoding>
 		<sb11-mna-client.version>3.1.0.RELEASE</sb11-mna-client.version>
-		<sb11-shared-code.version>3.1.0.RELEASE</sb11-shared-code.version>
-		<sb11-shared-security.version>3.1.0.RELEASE</sb11-shared-security.version>
+		<sb11-shared-code.version>3.1.1.RELEASE</sb11-shared-code.version>
+		<sb11-shared-security.version>3.1.1.RELEASE</sb11-shared-security.version>
 		<progman-client.version>3.1.0.RELEASE</progman-client.version>
-		<rest-api.version>3.1.0.RELEASE</rest-api.version>
+		<rest-api.version>3.1.1.RELEASE</rest-api.version>
 	</properties>
 		
 	<scm>
@@ -50,7 +50,7 @@
 		<repository>
 			<id>central</id>
 			<name>airdev-releases</name>
-			<url>https://airdev.jfrog.io/airdev/libs-releases-local</url>
+			<url>https://airdev.jfrog.io/airdev/libs-releases-locahtf	ttup-=l</url>
 		</repository>
 	</distributionManagement>
 
